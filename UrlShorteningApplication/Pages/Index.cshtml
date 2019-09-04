@@ -1,0 +1,41 @@
+﻿@page
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+
+<div class="text-center">
+    <h3 class="text-left">Simplify  your url</h3>
+    <div class="input-group">
+        <div id="progress" class="input-group-prepend d-none">
+            <span class="input-group-text"><i class="fas fa-spinner fa-lg fa-spin"></i></span>
+        </div>
+        <input type="text" class="form-control" id="txtLongurl" placeholder="Long Url">
+
+        <div class="input-group-append">
+            <button id="btnSubmit" class="btn btn-outline-primary">Shorten</button>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-7 text-left">
+            <ul id="ulShortUrl"></ul>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-7 text-left">
+            <span id="error" class="invalid-feedback"></span>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+window._serviceAddress = '@Configuration.GetSection("WebService")["UrlShorteningServiceEndPoint"]';
+</script>
+
+<script src="~/js/site.js"></script>
+
+
